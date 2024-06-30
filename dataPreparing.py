@@ -6,15 +6,6 @@ def dataPrep( file_path ) :
     # 读取数据
     data = pd.read_excel(file_path)
 
-    # 显示数据集的前几行以了解其结构
-    data_head = data.head()
-
-    # 检查是否有缺失值
-    missing_values = data.isnull().sum()
-
-    # 填补缺失值（使用均值填补）
-    data.fillna(data.mean(numeric_only=True), inplace=True)
-
     # 分离特征和标签
     X = data.iloc[:, :-1]  
     y = data.iloc[:, -1]   # 最后一列是分类标签
